@@ -1,0 +1,19 @@
+# Virtuelle Umgebungen
+.venv/
+venv/
+ENV/
+
+# Build- & Exe-Dateien
+build/
+dist/
+*.exe
+*.dll
+*.pkg
+*.pak
+
+# Python Cache
+__pycache__/
+*.pyc
+
+# Optionale große Messdateien/CSVs (falls nicht auf GitHub benötigt)
+test_messungen/
