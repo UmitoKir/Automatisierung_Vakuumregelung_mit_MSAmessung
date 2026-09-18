@@ -560,7 +560,7 @@ class HauptFenster(QWidget):
             self.previous_page = 1
             self.HM.excel_path = self.pfad2
             self.HM.ref_scan_path =self.pfad3
-            self.HM.msa.general_folder_path = self.pfad4
+            self.HM.save_folder_path = self.pfad4
             self.HM.starteAutomatedScanGUI()
             self.starte_live_plot()
 

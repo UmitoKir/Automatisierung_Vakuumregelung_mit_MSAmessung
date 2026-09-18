@@ -35,6 +35,7 @@ class HardwareManager():
         self.ref_scan_path = None
         self.excel_path = None
         self.csv_path = None
+        self.save_folder_path = None
 
         lut_pfad = r"C:\Users\messung\PycharmProjects\Automatisierung_Vakuumregelung_mit_MSAmessung\Regulierung_LUT\messung_ventil_mehr_stützpunkte_gut.csv"
             
@@ -158,6 +159,7 @@ class HardwareManager():
         if self.regler:
             self.regler.excel_path = self.excel_path
             self.regler.ref_scan_path = self.ref_scan_path
+            self.regler.save_folder_path = getattr(self, 'save_folder_path', None)
             self.regler.is_running = True
                                     
             self.regler_worker_thread = threading.Thread(
@@ -259,7 +261,7 @@ class VakuumRegler(threading.Thread):
         pythoncom.CoInitialize()
         try:
             self.msa = MSA500.MSA500(print_flag=self.print_flag)
-            #self.msa.general_folder_path = self.ref_scan_path
+            self.msa.general_folder_path = getattr(self, 'save_folder_path', None)
             self.msa.connect()
             startzeit = time.time()
             self.msa.sollwert_exceltabelle_path=self.excel_path
