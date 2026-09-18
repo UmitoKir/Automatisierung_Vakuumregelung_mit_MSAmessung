@@ -17,3 +17,4 @@ __pycache__/
 
 # Optionale große Messdateien/CSVs (falls nicht auf GitHub benötigt)
 test_messungen/
+Bilder/
